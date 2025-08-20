@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JW Player Connatix Media Library App - User Guide</title>
+    <style>
+        /* JW Player Connatix Documentation Style */
+        :root {
+            --primary-blue: #1f60c9;
+            --primary-dark: #0d47a1;
+            --secondary-gray: #f5f5f5;
+            --text-primary: #333;
+            --text-secondary: #666;
+            --border-color: #e0e0e0;
+            --success-green: #4caf50;
+            --warning-orange: #ff9800;
+            --error-red: #f44336;
+            --code-bg: #f8f9fa;
+            --code-border: #e9ecef;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .nav {
+            background: var(--secondary-gray);
+            padding: 20px 0;
+            margin-bottom: 40px;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .content {
+            margin-bottom: 60px;
+        }
+
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section h3 {
+            color: var(--text-primary);
+            font-size: 1.4rem;
+            margin: 30px 0 15px 0;
+        }
+
+        .section h4 {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            margin: 25px 0 10px 0;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+        }
+
+        .section ul, .section ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid var(--primary-blue);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid var(--warning-orange);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background: #e8f5e8;
+            border-left: 4px solid var(--success-green);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            border: 1px solid var(--code-border);
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .step {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            background: var(--primary-blue);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h4 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .screenshot {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin: 20px 0;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .footer {
+            background: var(--secondary-gray);
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .header {
+                padding: 30px 0;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .section h3 {
+                font-size: 1.2rem;
+            }
+
+            .step {
+                padding: 15px;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>JW Player Connatix Media Library App</h1>
+                <p>Integrate your JW Player Connatix videos with Hootsuite's social media management platform</p>
+            </div>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-links">
+                    <a href="#overview">Overview</a>
+                    <a href="#features">Features</a>
+                    <a href="#setup">Setup</a>
+                    <a href="#usage">Usage</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <main class="main-content">
+                <section id="overview" class="section">
+                    <h2>Overview</h2>
+                    <p>The JW Player Connatix Media Library App lets you access your JW Player Connatix videos directly within Hootsuite. Add videos to your social media posts without switching between platforms.</p>
+                </section>
+
+                <section id="features" class="section">
+                    <h2>Features</h2>
+                    <ul>
+                        <li><strong>Search:</strong> Find videos by title, description, or tags</li>
+                        <li><strong>Browse:</strong> Navigate through your video library with pagination</li>
+                        <li><strong>Secure:</strong> OAuth 2.0 authentication with encrypted credentials</li>
+                    </ul>
+                </section>
+
+                <section id="setup" class="section">
+                    <h2>Setup</h2>
+                    <p>You'll need your JW Player Connatix API key and Site ID. Find these in your <a href="https://fantastic-happiness-kq5ek7n.pages.github.io/getting-started.html" target="_blank">JW Player Connatix Dashboard</a>.</p>
+
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>Install the App</h4>
+                        <p>Go to Hootsuite Apps section and find "JW Player Connatix Media Library"</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>Enter Credentials</h4>
+                        <p>Provide your Site ID and API key when prompted</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>Authorize</h4>
+                        <p>Click "Authorize" to complete the setup</p>
+                    </div>
+                </section>
+
+                <section id="usage" class="section">
+                    <h2>Usage</h2>
+                    <p>Once connected, access your videos when creating posts in Hootsuite:</p>
+
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>Browse Videos</h4>
+                        <p>Click the media attachment icon in your compose window</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>Select Source</h4>
+                        <p>Choose "JW Player Connatix" from the media options</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>Add to Post</h4>
+                        <p>Click on a video to add it to your post</p>
+                    </div>
+                </section>
+
+
+            </main>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 JW Player Connatix Media Library App. Built for seamless integration between JW Player Connatix and Hootsuite.</p>
+            <p>
+                <a href="https://docs.jwplayer.com/platform/docs/platform-welcome" target="_blank">JW Player Connatix Documentation</a> |
+                <a href="https://developer.hootsuite.com/docs/predefined-api-overview" target="_blank">Hootsuite Developer Documentation</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
